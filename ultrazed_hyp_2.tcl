@@ -170,7 +170,7 @@ if {[string equal [get_filesets -quiet sources_1] ""]} {
 set obj [get_filesets sources_1]
 # Import local files from the original project
 set files [list \
- [file normalize "${origin_dir}/ultrazed_hyp_2.srcs/sources_1/bd/hyp_2/hdl/hyp_2_wrapper.vhd" ]\
+ [file normalize "${origin_dir}/srcs/hyp_2_wrapper.vhd" ]\
 ]
 set imported_files [import_files -fileset sources_1 $files]
 
@@ -178,7 +178,7 @@ set imported_files [import_files -fileset sources_1 $files]
 # None
 
 # Set 'sources_1' fileset file properties for local files
-set file "hdl/hyp_2_wrapper.vhd"
+set file "srcs/hyp_2_wrapper.vhd"
 set file_obj [get_files -of_objects [get_filesets sources_1] [list "*$file"]]
 set_property -name "file_type" -value "VHDL" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
@@ -216,9 +216,9 @@ if {[string equal [get_filesets -quiet constrs_1] ""]} {
 set obj [get_filesets constrs_1]
 
 # Add/Import constrs file and set constrs file properties
-set file "[file normalize ${origin_dir}/ultrazed_hyp_2.srcs/constrs_1/imports/new/UltraZed_EG_IO_CC_Master_XDC_File_v1.xdc]"
+set file "[file normalize ${origin_dir}/constraints/UltraZed_EG_IO_CC_Master_XDC_File_v1.xdc]"
 set file_imported [import_files -fileset constrs_1 [list $file]]
-set file "new/UltraZed_EG_IO_CC_Master_XDC_File_v1.xdc"
+set file "constraints/UltraZed_EG_IO_CC_Master_XDC_File_v1.xdc"
 set file_obj [get_files -of_objects [get_filesets constrs_1] [list "*$file"]]
 set_property -name "file_type" -value "XDC" -objects $file_obj
 set_property -name "is_enabled" -value "1" -objects $file_obj
